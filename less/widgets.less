@@ -1,0 +1,625 @@
+// -----------------------------
+// Beta Studio: CSS > Widgets
+// -----------------------------
+
+// -----------------------------
+// #Table of Contents
+// -----------------------------
+
+//  1.   #Logo
+//  2.   #Company Name
+//  3.   #Navigation
+//  4.   #Feature
+
+//  5.   #Buttons
+//  5.1  -- #Standard
+//  5.2  -- #Tweet
+//  5.3  -- #Dropbox
+//  5.4  -- #Click To Call
+//  5.5  -- #Paypal
+
+//  6.   #Image
+//  7.   #Gallery
+//  8.   #Slideshow
+
+//  9.   #Contact Form
+// 10.   #Signup Form
+
+// 11.   #Social Icons
+// 12.   #Twitter Feed
+
+// 13.   #Divider (Keyline)
+// 14.   #Profile
+
+
+// -----------------------------
+// 1.  #Logo
+// -----------------------------
+
+.logo-image {
+	text-align: center;
+	margin: 0 auto 10px;
+}
+
+
+// -----------------------------
+// 2.  #Company Name
+// -----------------------------
+
+.company-link {
+	position: relative;
+	display: inline-block; // Fixes problem with the :after underline not being
+						   // inline when a long company name is entered
+
+	&:hover {
+		text-decoration: none;
+		&:after {
+			text-decoration: none;
+			opacity: 1;
+			-webkit-transform: translateY(0px);
+			-moz-transform: translateY(0px);
+			transform: translateY(0px);
+		}
+	}
+
+	&:after {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		height: 3px;
+		background-color: @font-swatch10-color;
+		content: '';
+		opacity: 0;
+		-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
+		-moz-transition:    opacity 0.3s, -moz-transform 0.3s;
+		transition:         opacity 0.3s, transform 0.3s;
+		-webkit-transform: translateY(10px);
+		-moz-transform:    translateY(10px);
+		transform:         translateY(10px);
+	}
+
+	// Remove border at mobile and reduces font size
+	@media @mobile {
+		border-bottom: 0;
+		font-size: bkscale(@font-swatch10-font-size,0.8);
+	}
+}
+
+
+
+// -----------------------------
+// 3.  #Navigation
+// -----------------------------
+
+// See 'navigation.less'
+
+
+
+
+// -----------------------------
+// 4.  #Feature
+// -----------------------------
+
+// Main Feature
+// ------------
+
+/*.template-feature {
+	margin: 0 auto;
+	width: 960px;
+}*/
+
+.feature {
+	text-align: left;
+
+	// Background Image
+	.background-image {
+		background-size: cover;
+		overflow: hidden;
+		min-height: 420px;
+		max-height: 500px;
+		@media @tablet {
+			min-height: 250px;
+			max-height: 450px;
+		}
+	}
+
+	// Content Wrap
+	.content-wrap {
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+		background-color: fade(darken(@color-swatch1,90%),10%);
+		padding: 10px 0 20px;
+		text-align: center;
+
+		.content-inner-wrap {
+			width: 90%;
+		    margin: 0 5%;
+		}
+	}
+
+	// Feature Title and Strapline
+
+	.headline,
+	.strapline {
+		padding: 5px 0;
+		text-shadow: 0 0 6px rgba(0,0,0,0.2);
+
+		@media @tablet {
+			width: 100%;
+			float: none;
+		}
+	}
+
+
+	// Button
+	.button {
+		margin-top: 10px;
+		// Puts the button back to normal at tablet and mobile
+		@media @tablet {
+			float: none;
+			transform: translate(0%, 0%);
+			margin-bottom: 10px;
+			.button-style-alt;
+		}
+	}
+
+}
+
+
+// -----------------------------
+// 5.  #Buttons
+// -----------------------------
+
+//  5.1  #Standard
+//  --------------
+
+button,
+.button {
+	font-size: 13px;
+	padding: 11px 16px;
+	cursor: pointer;
+	&:focus {
+		outline: 0;
+	}
+}
+
+
+// 5.3  #Dropbox
+// -------------
+
+.dropbox .button {
+	margin-right: 10px;
+}
+
+
+
+
+// -----------------------------
+// 6. #Images
+// -----------------------------
+
+// Image Captions
+// --------------
+
+// Gallery & Slideshow
+.image-title,
+.image-description {
+	color: @color-swatch4;
+	text-shadow: 0 1px 3px rgba(0,0,0,0.2);
+	@media @tablet {
+		font-size: bkscale(@font-swatch5-font-size,0.75);
+	}
+}
+
+.caption-link {
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+
+// Image Widget
+// ------------
+
+.imagewidget {
+	.image-title,
+	.image-description {
+		color: @font-swatch5-color;
+		text-shadow: none;
+	}
+}
+
+
+
+
+// -----------------------------
+// 7.  #Gallery
+// -----------------------------
+
+.gallery {
+
+	// Gallery Layout
+	// --------------
+
+	// Gallery List
+	.gallery-list {
+	    display: -webkit-box;
+	    display: -moz-box;
+	    display: -ms-flexbox;
+	    display: -webkit-flex;
+	    display: flex;
+	    -webkit-flex-wrap: wrap;
+	    -ms-flex-wrap: wrap;
+	    flex-wrap: wrap;
+	    -webkit-box-pack: justify;
+	    -moz-box-pack: justify;
+	    -webkit-justify-content: space-between;
+	    -ms-flex-pack: justify;
+	    justify-content: space-between;
+	        -webkit-transition: all 0.5s ease;
+    -moz-transition: 	all 0.5s ease;
+    -ms-transition: 	all 0.5s ease;
+    -o-transition: 		all 0.5s ease;
+    transition: 		all 0.5s ease;
+	}
+
+	// Gallery Item
+	.gallery-item {
+	    position: relative;
+	    width: 32%;
+	    margin-bottom: 2%;
+	        -webkit-transition: all 0.5s ease;
+    -moz-transition: 	all 0.5s ease;
+    -ms-transition: 	all 0.5s ease;
+    -o-transition: 		all 0.5s ease;
+    transition: 		all 0.5s ease;
+	    // Display 100% at mobile
+	    @media @mobile {
+	        width: 100%;
+	        margin-bottom: 4%;
+	    }
+	}
+
+	// Use Background Image Method
+	.image-link {
+	    display: block;
+	    height: 280px;
+	    background-repeat: no-repeat;
+	    background-position: center;
+	    background-size: cover;
+	        -webkit-transition: all 0.5s ease;
+    -moz-transition: 	all 0.5s ease;
+    -ms-transition: 	all 0.5s ease;
+    -o-transition: 		all 0.5s ease;
+    transition: 		all 0.5s ease;
+	    @media @tablet {
+	        height: 210px;
+	    }
+	}
+	// Hide Img Element
+	.image {
+		display: none;
+	}
+
+
+	// Image Captions
+	// --------------
+
+	// Hide caption
+	.caption {
+		display: none;
+		margin: 0;
+		padding: 20px;
+		background-color: hsla(hue(@color-swatch7), saturation(@color-swatch7), lightness(@color-swatch7), 0.8);
+	}
+	// Show caption
+	.figure:hover .caption {
+		position: absolute;
+		top: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+	}
+	// Image Title
+	.image-title {
+		display: inline-block;
+		margin-bottom: 16px;
+		padding-bottom: 3px;
+		border-bottom: 2px solid hsla(hue(@color-swatch1), saturation(@color-swatch1), lightness(@color-swatch1), 0.5);
+	}
+}
+
+
+
+
+// -----------------------------
+// 8.  #Slideshow
+// -----------------------------
+
+// Slideshow Layout
+// ----------------
+
+// Slideshow Height
+.responsiveslideshow,
+.responsiveslideshow .figure {
+    position: relative;
+    min-height: 400px;
+}
+
+
+// Slideshow Images
+// ----------------
+
+// Use Background-image Method
+.responsiveslideshow {
+	.figure {
+	    background-size: cover;
+	    background-position: center;
+	}
+	.responsiveslideshow .image {
+	    display: none; // Hide Img Element
+	}
+	.caption {
+		background-color: darken(@color-swatch7, 8%);
+	}
+}
+
+
+// Slideshow Controls
+// ------------------
+
+// Naviation Buttons
+.slide-navigation {
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 0;
+
+	// Button Text
+	.control-text {
+		display: none;
+	}
+}
+
+// Prev, Next, Pause Buttons
+.previous-button,
+.next-button,
+.pause-toggle {
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	background-color: hsla(hue(@color-swatch3), saturation(@color-swatch3), lightness(@color-swatch3), 0.7);
+	// Removes margin-right for icons
+	&:before {
+		margin-right: 0;
+	}
+}
+
+
+// Slideshow Pagination
+// --------------------
+
+.slide-pagination {
+
+	// Pagination List
+	.pagination-list {
+		margin: 20px 0 0;
+		text-align: right;
+	}
+
+	// Pagination Item
+	.pagination-item {
+		margin: 0 2px;
+	}
+
+	// Pagination Button
+	.button--pagination {
+		width: 15px;
+		height: 15px;
+		padding: 0;
+		background-color: @color-swatch3;
+		border-radius: 50%;
+		text-indent: -9999px;
+	}
+
+	// Pagination Selected Item
+	.pagination-item.selected .button--pagination {
+	    background-color: darken(@color-swatch3, 10%);
+	}
+}
+
+
+
+
+// -----------------------------
+// 9.  #Contact Form
+// -----------------------------
+
+// See 'template.less > 4. #Forms (General)'
+
+
+
+
+// -----------------------------
+// 10. #Signup Form
+// -----------------------------
+
+// See 'template.less > 4. #Forms (Widgets)'
+
+
+
+
+// -----------------------------
+// 11. #Social Icons
+// -----------------------------
+
+// Item Link
+.social-link {
+	font-size: 18px;
+	&:hover {
+		color: darken(@color-swatch3, 10%);
+		text-decoration: none;
+	}
+}
+
+// Hide Social name
+.social-name {
+	display: none;
+}
+
+
+
+
+// -----------------------------
+// 12. #Twitter Feed
+// -----------------------------
+
+// Twitter
+// ----------
+
+.twitter-feed {
+	padding: 30px;
+	background-color: darken(@color-swatch7,5%);
+	@media @mobile {
+		padding: 20px;
+	}
+}
+
+
+// Tweet Item
+// ----------
+
+.tweet-item {
+	padding: 5px;
+	background-color: darken(@color-swatch7,5%);
+}
+
+
+// Avatar & Tweet Wrap
+// -------------------
+
+// Avatar
+.avatar {
+	width: 10%;
+	margin-right: 1%;
+	margin-bottom: 2%;
+	float: left;
+}
+// Tweet Wrap
+.tweet-wrap {
+	width: 89%;
+	padding: 15px 20px;
+	background-color: darken(@color-swatch7, 8%);
+}
+
+// Both
+.avatar,
+.tweet-wrap {
+	display: inline-block; // Display element inline
+	vertical-align: top;
+	@media @mobile {
+		width: 100%;
+		margin-right: 0;
+	}
+}
+
+
+// Tweet Content
+// -------------
+
+.tweet-content {
+	display: block;
+	margin: 20px 0 0;
+}
+
+
+// Account Link (Username)
+// -----------------------
+
+.account-link {
+	padding-bottom: 3px;
+	border-bottom: 2px solid @color-swatch4;
+	.paragraph; // Apply 'Paragraph' mixin
+	color: @color-swatch4;
+	&:hover {
+		border-color: @color-swatch3;
+		color: @color-swatch3;
+		text-decoration: none;
+	}
+}
+
+
+// Tweet Metadata
+// --------------
+
+.tweet-metadata {
+	font-size: 12px;
+	color: lighten(@font-swatch5-color,10%);
+}
+
+
+
+
+// -----------------------------
+// 13. #Divider (Line)
+// -----------------------------
+
+hr.rule {
+    background-color: darken(darken(@color-swatch1,5%),5%);
+}
+
+
+
+
+// -----------------------------
+// 14. #Profile
+// -----------------------------
+
+// Profile Resets
+// --------------
+
+// Reset Twitter feed styles
+.profile .twitter {
+	padding: 0;
+	background-color: transparent;
+	.tweet-item {
+		padding: 0;
+		background-color: transparent;
+	}
+	.tweet-wrap {
+		padding: 0;
+		background-color: transparent;
+	}
+	.avatar {
+		display: none;
+	}
+}
+
+// Reset Signup form styles
+.profile .signupform {
+	.form {
+		background-color: transparent;
+	}
+	.form-body {
+		margin: 10px 0 0;
+	}
+	.legend {
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+	}
+	.input--email {
+		background-color: @color-swatch1;
+	}
+}
+
+// -----------------------------
+// 14. #Yelp Review
+// -----------------------------
+
+.review-list {
+	list-style: none;
+	margin: 0;
+}

@@ -1,0 +1,252 @@
+// ------------------------------
+// Beta Studio: CSS > template.less
+// ------------------------------
+
+
+// ------------------------------
+// #Table of Contents
+// ------------------------------
+
+// 1. #Page Container
+// 2. #Header & Footer
+// 3. #Forms (General)
+// 4. #Forms (Widgets)
+
+
+// ------------------------------
+// #1. Page Settings
+// ------------------------------
+
+// Page Body
+// --------------
+
+body {
+	background-color: @color-swatch1;
+}
+
+// Page Container
+// --------------
+
+.container {
+    margin: 0 2.5%;
+    width: 95%;
+}
+
+
+// Page Content
+// ------------------------------
+
+.page-content {
+	background-color: @color-swatch7;
+	-webkit-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 0px 19px 0px rgba(0,0,0,0.1);
+	display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 30px auto;
+    max-width: 960px;
+}
+
+
+// Zone Content
+// ------------------------------
+
+.zone-content {
+	margin: 50px 0;
+	padding: 0 20px;
+	-webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+}
+
+
+
+
+// ------------------------------
+// 2. #Header & Footer
+// ------------------------------
+
+.template-header,
+.template-footer {
+	.flex-vert-center; // Mixin > Flexbox: Vertical Align Center Mixin
+	padding: 20px 0;
+	background-color: @contrast-color;
+	text-align: center;
+}
+
+
+// Footer
+// ------------------------------
+
+.template-footer {
+	color: lighten(@color-swatch6, 40%);
+	
+	// background-color: @color-swatch3;
+	// Change heading elements to white
+	h1, h2, h3, h4 {
+		color: @bg-color;
+	}
+	// Lighten paragraph & link elements
+	p, a {
+		color: lighten(@color-swatch6, 40%);
+	}
+	// Reset Twitter feed styles
+	.twitter-feed {
+		padding: 0;
+		background-color: transparent;
+	}
+
+    // Adds spacing to all footer widgets
+    .widget { margin-bottom: 5px; }
+}
+
+
+
+
+// ------------------------------
+// 3. #Forms (General)
+// ------------------------------
+
+// Form
+// ------------------------------
+
+form,
+.form {
+	background-color: darken(@color-swatch7, 5%);
+}
+
+.contactform__fieldset,
+.widget__signupform .signupform__fieldset,
+.blogsearch__fieldset,
+.product-filters .fieldset--filters {
+    float: left;
+    width: 100%;
+    .clearfix;
+    background-color: darken(@color-swatch7, 5%);
+}
+
+// Form Body
+.form-body {
+	margin: 30px;
+	@media @mobile {
+		margin: 20px;
+	}
+}
+
+.columns-four-first,
+.columns-four-second,
+.columns-four-third,
+.columns-four-fourth {
+
+	// Form Body
+
+	.widget__signupform .form-body {
+		display: block;
+	}
+
+	// First Form Group
+
+	.widget__signupform .form-group:first-child {
+		margin-bottom: 10px;
+		margin-right: 0;
+	}
+}
+
+// Form Group
+.form-group {
+	margin-bottom: 20px;
+	@media @mobile {
+		margin-bottom: 10px;
+	}
+}
+
+
+// Legend
+// ------------------------------
+
+legend {
+	width: 100%;
+	padding: 10px 30px;
+	background-color: @color-swatch3;
+	border-bottom: 1px solid darken(@color-swatch1,12%);
+	color: lighten(@color-swatch3, 100%);
+	@media @mobile {
+		padding: 6px 20px;
+	}
+}
+
+// Select
+// ------------------------------
+
+select {
+    height: 36px;
+    outline: none;
+    border: 1px solid darken(@color-swatch1,10%);
+    border-radius: 0;
+    background-color: @color-swatch1;
+    font-size: 12px;
+    text-indent: 0;
+    &:hover, &:focus {
+        background-color: @color-swatch1;
+        cursor: pointer;
+	}
+}
+
+
+// Inputs: Text
+// ------------------------------
+
+input[type="search"],
+input[type="email"],
+input[type="password"],
+textarea,
+.input--single-line {
+	padding: 14px 10px;
+	border: 1px solid darken(@color-swatch1,8%);
+	&:focus {
+		border: 1px solid darken(@color-swatch1,12%);
+		box-shadow: none;
+	}
+}
+
+
+
+
+// ------------------------------
+// 4. #Forms (Widgets)
+// ------------------------------
+
+// Contact, Sign Up, Blog Search Forms
+// ------------------------------
+
+// Form Group
+.signupform,
+.blogsearch,
+.product-filters .fieldset--search {
+	.form-group {
+		margin-bottom: 0;
+		&:first-child {
+			-ms-flex: 1 1 auto;
+			-webkit-flex: 1 1 auto;
+			flex: 1 1 auto;
+			margin-right: 10px;
+		}
+	}
+	.form-body {
+		display: -ms-flexbox;
+		display: -webkit-flex;
+		display: flex;
+	}
+	.label {
+		display: none;
+	}
+}
